@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="/" class="back-to-home-btn">Back to Home</a>
+<div class="recipe-detail-page">
+
+  <!-- ── Hero Image with title overlay ── -->
+  <div class="rd-hero">
+    <img src="{{ recipe.image }}" alt="{{ recipe.name }}">
+
+    <div class="rd-hero-title">
+      <div class="section-label">Recipe Detail</div>
+      <h1>{{ recipe.name }}</h1>
+    </div>
+  </div>
+
+  <!-- ── Body: main + sidebar ── -->
+  <div class="rd-body">
+
+    <!-- Left: main content -->
+    <div class="rd-main">
+
+      <!-- Meta chips -->
+      <div class="rd-meta">
+        <div class="rd-meta-chip">
+          <span class="chip-icon">◉</span>
+          {{ recipe.cuisine }}
+        </div>
+
+        <div class="rd-stars">
+          {% for i in "12345" %}
+            {% if forloop.counter <= recipe.rating %}
+              <span class="s-fill">★</span>
+            {% else %}
+              <span class="s-empty">★</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="rd-meta-chip">
+          <span class="chip-icon">◷</span>
+          30 mins
+        </div>
+
+        <div class="rd-meta-chip">
+          <span class="chip-icon">◈</span>
+          Serves 2–4
+        </div>
+      </div>
+
+      <div class="rd-rule"></div>
+
+      <!-- Ingredients -->
+      <div class="rd-section-label">Ingredients</div>
+      <ul class="rd-ingredients">
+        {% for i in recipe.ingredients %}
+        <li class="rd-ingredient">{{ i }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="rd-rule"></div>
+
+      <!-- Instructions placeholder -->
+      <div class="rd-section-label">Method</div>
+      <ul class="rd-ingredients">
+        <li class="rd-ingredient">Prepare and measure all ingredients beforehand.</li>
+        <li class="rd-ingredient">Heat pan on medium flame with oil or butter.</li>
+        <li class="rd-ingredient">Combine all main components as per recipe order.</li>
+        <li class="rd-ingredient">Season to taste and adjust texture as needed.</li>
+        <li class="rd-ingredient">Plate with garnish and serve immediately.</li>
+      </ul>
+
+    </div>
+
+    <!-- Right: sidebar -->
+    <aside class="rd-sidebar">
+      <div class="rd-sidebar-card">
+        <h3>Quick Info</h3>
+
+        <div class="rd-sidebar-row">
+          <span class="label">Cuisine</span>
+          <span class="value">{{ recipe.cuisine }}</span>
+        </div>
+        <div class="rd-sidebar-row">
+          <span class="label">Rating</span>
+          <span class="value gold">{{ recipe.rating }} / 5</span>
+        </div>
+        <div class="rd-sidebar-row">
+          <span class="label">Prep Time</span>
+          <span class="value">15 mins</span>
+        </div>
+        <div class="rd-sidebar-row">
+          <span class="label">Cook Time</span>
+          <span class="value">30 mins</span>
+        </div>
+        <div class="rd-sidebar-row">
+          <span class="label">Serves</span>
+          <span class="value">2–4 people</span>
+        </div>
+        <div class="rd-sidebar-row">
+          <span class="label">Difficulty</span>
+          <span class="value gold">Medium</span>
+        </div>
+
+        <div class="rd-cta">
+          
+          <a href="/categories/" class="rd-cta-btn ghost">← All Recipes</a>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+</div>
+{% endblock %}

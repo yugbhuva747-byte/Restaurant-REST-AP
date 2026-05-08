@@ -1,0 +1,45 @@
+{% load static %}
+
+<nav class="navbar" id="navbar">
+
+  <!-- Logo -->
+  <a href="/" class="logo">
+    <div class="logo-icon">✦</div>
+    Authentic <em>&nbsp;Restaurant</em>
+  </a>
+
+  <!-- Nav links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/categories/">Categories</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+
+  <!-- Search -->
+  <form action="/search/" class="search-box">
+    <input type="text" name="q" placeholder="Search recipe…" autocomplete="off">
+    <button type="submit">⌕</button>
+  </form>
+
+  <!-- Mobile toggle -->
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</nav>
+
+<script>
+  // Scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+</script>

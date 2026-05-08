@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ──────────────── PAGE BANNER ──────────────── -->
+<div class="page-banner" data-count="{{ recipes|length }}">
+  <div class="page-banner-inner">
+    <a href="/" class="back-to-home-btn">Back to Home</a>
+    <div class="section-label">Full Collection</div>
+    <h1>All <em>Recipes</em></h1>
+    <p>
+      Every recipe, every cuisine, every craving —
+      all in one place, crafted to perfection.
+    </p>
+  </div>
+</div>
+
+
+<!-- ──────────────── RECIPE LIST GRID ──────────────── -->
+<div class="recipe-list-grid">
+
+  {% for recipe in recipes %}
+  <article class="recipe-list-card">
+
+    <!-- Image -->
+    <div class="rlc-img">
+      <img src="{{ recipe.image }}" alt="{{ recipe.name }}">
+      <span class="rlc-badge">{{ recipe.cuisine }}</span>
+      <button class="rlc-fav" title="Save">♡</button>
+    </div>
+
+    <!-- Body -->
+    <div class="rlc-body">
+
+      <div class="rlc-meta">
+        <span class="rlc-cuisine">{{ recipe.cuisine }}</span>
+        <div class="rlc-stars">
+          {% for i in "12345" %}
+            {% if forloop.counter <= recipe.rating %}
+              <span class="s-fill">★</span>
+            {% else %}
+              <span class="s-empty">★</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <h3 class="rlc-title">{{ recipe.name }}</h3>
+
+      <div class="rlc-divider"></div>
+
+      <a href="/recipe/{{ recipe.id }}/" class="rlc-link">View Recipe</a>
+
+    </div>
+
+  </article>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

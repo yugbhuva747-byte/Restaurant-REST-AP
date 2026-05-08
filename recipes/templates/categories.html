@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ──────────────── PAGE BANNER ──────────────── -->
+<div class="page-banner" data-count="{{ cuisines|length }}">
+  <div class="page-banner-inner">
+    <a href="/" class="back-to-home-btn">Back to Home</a>
+    <div class="section-label">Browse Collection</div>
+    <h1>Explore <em>Cuisines</em></h1>
+    <p>
+      From the spice-laden streets of India to the
+      delicate kitchens of France — every cuisine
+      tells its own unforgettable story.
+    </p>
+  </div>
+</div>
+
+
+<!-- ──────────────── CATEGORY GRID ──────────────── -->
+<div class="category-grid">
+
+  {% for c in cuisines %}
+  <a href="/cuisine/{{ c }}/" class="category-card">
+
+    <!-- top row: index + corner bracket -->
+    <div class="cat-top">
+      <span class="cat-index">0{{ forloop.counter }}</span>
+      <div class="cat-corner"></div>
+    </div>
+
+    <!-- bottom row: name + arrow -->
+    <div class="cat-bottom">
+      <div class="cat-name">{{ c }}</div>
+      <div class="cat-arrow">Explore</div>
+    </div>
+
+    <!-- big letter watermark -->
+    <div class="cat-letter">{{ c|first|upper }}</div>
+
+    <!-- bottom gold line -->
+    <div class="cat-line"></div>
+
+  </a>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

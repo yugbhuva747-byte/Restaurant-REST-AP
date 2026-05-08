@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+
+  <div class="hero-text">
+    <div class="hero-eyebrow">Est. 2024 &nbsp;·&nbsp; Fine Dining</div>
+
+    <h1>
+      Where Every Dish<br>
+      Tells a <em>Story</em>
+    </h1>
+
+    <p class="hero-tagline">
+      Crafted with rare ingredients, classical technique,<br>
+      and an uncompromising devotion to flavour.
+    </p>
+
+    <div class="hero-actions">
+      <a href="/categories/" class="hero-btn">Explore Recipes</a>
+      <a href="/about/" class="hero-btn-ghost">Our Philosophy</a>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img style="padding: 50px; margin-top: 50px;" src="{% static 'images/restaurant.jpg' %}" alt="Chef preparing a dish">
+
+    <!-- Floating stat badge -->
+    <div class="hero-badge " style="margin-left: 100px;">
+      <span>150+</span>
+      <small>Signature Recipes</small>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════ FEATURED RECIPES ════════════════════════ -->
+<div class="section-header">
+  <div class="section-label">Curated Selection</div>
+  <h2 class="section-title">Featured <em>Recipes</em></h2>
+  <p class="section-sub">
+    A selection of our most celebrated dishes — born from tradition, refined by passion.
+  </p>
+</div>
+
+<div class="recipe-grid">
+
+  {% for recipe in recipes|slice:":6" %}
+  <article class="food-card" style="margin: 20px;">
+
+    <div class="food-card-inner">
+      <img style="padding: 50px;" src="{{ recipe.image }}" alt="{{ recipe.name }}">
+
+      <!-- Cuisine badge -->
+      <span class="cuisine-tag">{{ recipe.cuisine }}</span>
+
+      <!-- Favourite button -->
+      <button class="fav-btn" title="Save to favourites">♡</button>
+
+      <!-- Info overlay -->
+      <div class="food-info">
+        <h3>{{ recipe.name }}</h3>
+
+        <div class="rating">
+          {% for i in "12345" %}
+            {% if forloop.counter <= recipe.rating %}
+              <span class="star-filled">★</span>
+            {% else %}
+              <span class="star-empty">★</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="card-reveal">
+          <a href="/recipe/{{ recipe.id }}/" class="details-btn">View Recipe</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

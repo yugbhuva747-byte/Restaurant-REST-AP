@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="/" class="back-to-home-btn">Back to Home</a>
+
+<h1>Search Results for "{{query}}"</h1>
+
+<div class="recipe-grid">
+
+{% for recipe in recipes %}
+
+<div class="recipe-card">
+
+<img src="{{recipe.image}}">
+
+<h3>{{recipe.name}}</h3>
+
+<a href="/categories/">View</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="/" class="back-to-home-btn">Back to Home</a>
+<div class="about-page">
+
+  <!-- ── Hero: text left, image right ── -->
+  <div class="about-hero">
+
+    <!-- Left text panel -->
+    <div class="about-text-panel">
+      <div class="section-label">Our Story</div>
+
+      <h1>Passion on Every <em>Plate</em></h1>
+
+      <p class="about-lead">
+        Born from a love of food and a reverence for tradition,
+        Authentic Restaurant is a place where every recipe carries
+        a history worth savouring.
+      </p>
+
+      <p class="about-body">
+        Our chefs travel the world to learn, refine, and celebrate
+        cuisines from every corner of the globe. Using only the finest
+        seasonal ingredients and time-honoured techniques, we bring
+        authentic flavours to your table — nothing artificial, nothing
+        rushed, just pure culinary craft.
+      </p>
+
+      <!-- Stats -->
+      <div class="about-stats">
+        <div class="about-stat">
+          <strong>150+</strong>
+          <span>Recipes</span>
+        </div>
+        <div class="about-stat">
+          <strong>20+</strong>
+          <span>Cuisines</span>
+        </div>
+        <div class="about-stat">
+          <strong>12</strong>
+          <span>Years</span>
+        </div>
+        <div class="about-stat">
+          <strong>4.9★</strong>
+          <span>Rating</span>
+        </div>
+      </div>
+
+      <p class="about-sig">
+        "Great food is the foundation of genuine happiness."
+        <br>— Head Chef, Authentic Restaurant
+      </p>
+    </div>
+
+    <!-- Right image panel -->
+    <div class="about-img-panel">
+      <img src="{% static 'images/restaurant.jpg' %}" alt="Our Restaurant">
+
+      <!-- Floating quote card -->
+      <div class="about-quote-card">
+        <blockquote>
+          "Every dish we serve is a letter written to our guests — sealed with care, delivered with love."
+        </blockquote>
+        <cite>— Executive Chef</cite>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Values section ── -->
+  <div class="about-values">
+    <div class="section-header" style="padding: 0 0 0; text-align:left;">
+      <div class="section-label" style="justify-content:flex-start; margin-bottom:16px;">What We Stand For</div>
+      <h2 class="section-title" style="text-align:left; margin:0;">Our <em>Values</em></h2>
+    </div>
+
+    <div class="about-values-grid">
+
+      <div class="about-value-card">
+        <span class="avc-icon">🌿</span>
+        <span class="avc-num">01</span>
+        <h3>Fresh Ingredients</h3>
+        <p>
+          We source locally and seasonally, partnering
+          with trusted farmers to guarantee freshness
+          from field to kitchen every single day.
+        </p>
+      </div>
+
+      <div class="about-value-card">
+        <span class="avc-icon">🔥</span>
+        <span class="avc-num">02</span>
+        <h3>Authentic Technique</h3>
+        <p>
+          Our recipes honour centuries of culinary
+          tradition. We never shortcut — each method
+          is practised, refined, and perfected.
+        </p>
+      </div>
+
+      <div class="about-value-card">
+        <span class="avc-icon">❤️</span>
+        <span class="avc-num">03</span>
+        <h3>Cooked With Love</h3>
+        <p>
+          Beyond technique lies the most essential
+          ingredient of all — the genuine care and
+          passion our chefs bring to every plate.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
